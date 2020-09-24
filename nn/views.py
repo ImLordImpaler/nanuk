@@ -1,6 +1,6 @@
 from django.shortcuts import render , redirect
 from .forms import NewUserForm
-from django.contrib.auth import authenticate , logout , login
+from django.contrib.auth import authenticate , logout , login as dj_login
 from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='loginPage')
@@ -19,7 +19,7 @@ def loginPage(request):
 
         user = authenticate(request , email1 , passwd)
         if user is not None:
-            login(request , user)
+            login_dj(request , user)
         else:
             print('andha hai kya lawde')
     return render(request , 'nn/login.html')

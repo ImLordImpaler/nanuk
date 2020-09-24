@@ -3,13 +3,12 @@ from .forms import NewUserForm
 from django.contrib.auth import authenticate , logout , login as dj_login
 from django.contrib.auth.decorators import login_required
 
-@login_required(login_url='loginPage')
+
 def index(request):
     return render(request , 'nn/index.html')
 
 def reasons(request):
     pass
-@login_required(login_url='loginPage')
 def gallery(request):
     return render(request , 'nn/gallery.html')
 def loginPage(request):
@@ -23,7 +22,6 @@ def loginPage(request):
         else:
             print('andha hai kya lawde')
     return render(request , 'nn/login.html')
-@login_required(login_url='loginPage')
 def logoutPage(request):
     logout(request)
     return redirect('loginPage')

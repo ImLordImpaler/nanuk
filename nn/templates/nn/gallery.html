@@ -1,0 +1,119 @@
+{% extends 'nn/base.html'%}
+{% load static%}
+{% block content%}
+    <div class="gallery">
+
+
+        <img src="{% static 'images/tenth.jpg'%}">
+
+
+       <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">
+  Secret Tab
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">I'll tell you some secrets...</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <h3> 1) I stalk you everydayyy... shh....</h3>
+          <br>
+          <br>
+          <h5> 2) Even though your whole family practically hates me. I kind of like them. I don't know why, I just do</h5>
+          <br>
+          <br>
+          <h5>3) I wanted to create a proper image gallery sort of. But jaldi ka kaam shetan ka hota hai xD </h5>
+          <br>
+          <br>
+          <h5>4) I love these photos of you. And i plan on making more. So stay tuned okay! </h5>
+      </div>
+      <div class="modal-footer">
+        <p><u>I can't say this enough but i'm very grateful that i have you in life <3</u></p>
+      </div>
+    </div>
+  </div>
+</div>
+  <img src="{% static 'images/second.jpg'%}">
+
+
+  <img src="{% static 'images/third.jpg'%}">
+
+  <img src="{% static 'images/fourth.jpg'%}">
+  <img src="{% static 'images/fifth.jpg'%}">
+  <img src="{% static 'images/sixth.jpg'%}">
+  <img src="{% static 'images/seventh.jpg'%}">
+  <img src="{% static 'images/eight.jpg'%}">
+  <img src="{% static 'images/ninth.jpg'%}">
+
+  <img src="{% static 'images/first.jpg'%}">
+
+</div>
+<style>
+    body {
+  padding: 2px 0 0 2px;
+}
+
+.gallery img {
+  float: left;
+  padding: 0 2px 2px 0;
+  /* Yes, you *can* adjust/remove padding. */
+}
+</style>
+
+<script>
+    function scaleGallery()
+{
+  // This is roughly the max pixels width/height of a square photo
+  var widthSetting = 400;
+
+  // Do not edit any of this unless you know what you're doing
+  var containerWidth = $(".gallery").width();
+  var ratioSumMax = containerWidth / widthSetting;
+  var imgs = $(".gallery img");
+  var numPhotos = imgs.length, ratioSum, ratio, photo, row, rowPadding, i = 0;
+
+  while (i < numPhotos) {
+    ratioSum = rowPadding = 0;
+    row = new Array();
+    while (i < numPhotos && ratioSum < ratioSumMax) {
+        photo = $(imgs[i]);
+        // reset width to original
+        photo.width("");
+        ratio = photo.width() / photo.height();
+        rowPadding += getHorizontalPadding(photo);
+        // if this is going to be first in the row, clear: left
+        if(ratioSum == 0) photo.css("clear", "left"); else photo.css("clear", "none");
+        ratioSum += ratio;
+        row.push(photo);
+        i++;
+        // if only 1 image left, squeeze it in
+        if(i == numPhotos - 1) ratioSumMax = 999;
+    }
+    unitWidth = (containerWidth - rowPadding) / ratioSum;
+
+    row.forEach(function (elem) {
+      elem.width(unitWidth * elem.width() / elem.height());
+    });
+  }
+}
+
+function getHorizontalPadding(elem)
+{
+    var padding = 0;
+    var left = elem.css("padding-left");
+    var right = elem.css("padding-right");
+    padding += parseInt(left ? left.replace("px", "") : 0);
+    padding += parseInt(right ? right.replace("px", "") : 0);
+    return padding;
+}
+
+$(window).load(scaleGallery);
+$(window).resize(scaleGallery);
+</script>
+{% endblock%}

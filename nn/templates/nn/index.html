@@ -1,0 +1,85 @@
+{% extends 'nn/base.html'%}
+{% load static%}
+
+
+{% block content%}
+
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Hellllo Noni Boss! <i class="fas fa-heartbeat"></i></h1>
+        <p class="lead">This is nothing really. Just an appreciation for <u><strong><i>YOU!</i></strong></u></p>
+      </div>
+    </div>
+
+    <div class="container-fluid cover">
+        <img src="{% static 'images/ninth.jpg'%}" class="rounded float-left" alt="...">
+        <img src="{% static 'images/sixth.jpg'%}" class="rounded float-right" alt="...">
+
+    </div>
+    <br/>
+    <br/>
+    <div class="container-fluid gallery">
+            <div class="row">
+                <div class="col-md-4 ">
+                        <div class="card" style="width: 12rem; height: 12rem; margin: 20px; border: 1px solid black">
+                          <img src="{% static 'images/cover-2.jpg'%} " class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">Nainika 'Einstein' Nautiyal </h5>
+                            <p class="card-text">My life had been so boring since you left. and now that you're back. For no matter how long. I promise to be the change i want so much.</p>
+
+                          </div>
+                        </div>
+                </div>
+                <div class="col-md-4 ">
+                     <div class="card" style="width: 12rem; height: 12rem; margin: 20px; border: 1px solid black">
+                          <img src="https://cdn4.vectorstock.com/i/1000x1000/71/83/albert-einstein-editorial-cartoon-vector-20657183.jpg" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">To my <strong><u><i>Noni Boss!</i></u></strong>  </h5>
+                            <p class="card-text">No matter who comes and goes. My love for you will never change. As einstein said, Universal Gravitational Constant will always remain the same xD</p>
+
+                          </div>
+                        </div>
+
+                </div>
+                <div class="col-md-4 ">
+                        <div class="card" style="width: 12rem; height: 12rem; margin: 20px; border: 1px solid black">
+                          <img src="{% static 'images/cover-3.jpg'%}" class="card-img-top" alt="...">
+                          <div class="card-body">
+                            <h5 class="card-title">To my mother of dogs.. </h5>
+                            <p class="card-text">Lucky are those who get to see you everyday. Please bhagwan ji, Aaj tak kuch nai maanga. Bas isme thodi help kar do. </p>
+
+                          </div>
+                        </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="container-fluid footer">
+            <div class="container">
+                <center id="quote"><h3>Quantum Computers will change humans forever. And with your love and support, I will make india a global superpower by the end of 2020s. <br><br><strong><u><i>You & Me, We're Gonna Change The World!</i></u></strong><br><br><strong><u><i>Rachit & Nanika</i></u></strong></h3> <br> <i>Forever yours and only yours  <i class="fas fa-heart"></i></i> </center>
+            </div>
+    </div>
+    <style>
+        .gallery{
+        background-color: #E9ECEF;
+        height: 33rem;
+        margin-top: 300px;
+        }
+
+       .rounded{
+        height: 300px;
+        width: 300px;
+       }
+
+       .footer{
+        height: 350px;
+        background-color: black;
+        margin-top: 100px;
+       }
+
+       #quote{
+       color: white;
+       padding-top: 90px;
+       }
+    </style>
+{% endblock%}

@@ -1,0 +1,1 @@
+web: gunicorn nanuk.wsgi --log-file -
